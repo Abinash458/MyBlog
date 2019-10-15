@@ -1,15 +1,15 @@
 <?php
   $conn=mysqli_connect('localhost','root','','myBlog');
 
-  if (isset($_GET['name']) && isset($_GET['email']) && isset($_GET['number']) && isset($_GET['gender']) && isset($_GET['bio']) && isset($_GET['password']) && isset($_GET['repassword'])) {
+  if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['number']) && isset($_POST['gender']) && isset($_POST['bio']) && isset($_POST['password']) && isset($_POST['repassword'])) {
 
-    $name=$_GET['name'];
-    $email=$_GET['email'];
-    $number=$_GET['number'];
-    $gender=$_GET['gender'];
-    $bio=$_GET['bio'];
-    $password=$_GET['password'];
-    $repassword=$_GET['repassword'];
+    $name=$_POST['name'];
+    $email=$_POST['email'];
+    $number=$_POST['number'];
+    $gender=$_POST['gender'];
+    $bio=$_POST['bio'];
+    $password=$_POST['password'];
+    $repassword=$_POST['repassword'];
 
     $sql="insert into users(name,email,number,gender,bio,password,repassword) values('$name','$email','$number','$gender','$bio','$password','$repassword')";
 
@@ -39,7 +39,7 @@
 			<h1>Sign Up</h1>
 			<p>Please fill in this form to create an account.</p>
 			<hr>
-      <form id="second_form" action="signup.php">
+      <form id="second_form" action="signup.php" method="POST">
           <label for="name"><b>Name</b></label>
           <input type="text" id="newName" name="name" placeholder="Enter Full Name">
           <span id="nameError" style="color: red; display: none;">Please Provide your Name</span><br>
